@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airship Adventure</title>
+  <!-- Link to the site-wide stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Container for our looping videos and interactive elements -->
+  <div id="video-container">
+    <!-- Main video: replace assets/main.mp4 with your 120‑second front‑view clip -->
+    <video id="mainVideo" class="video active" autoplay muted loop playsinline
+           poster="assets/airship-placeholder.png">
+      <source src="assets/main.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Back video: replace assets/back.mp4 with your 120‑second rear‑view clip -->
+    <video id="backVideo" class="video" autoplay muted loop playsinline
+           poster="assets/airship-placeholder.png">
+      <source src="assets/back.mp4" type="video/mp4">
+    </video>
+
+    <!-- Hotspot that will trigger a transition to the back video -->
+    <!-- Adjust the positioning and size (top, left, width, height) to align over the back of your airship -->
+    <div class="hotspot backHotspot" title="View the back of the ship"
+         style="top: 55%; left: 65%; width: 10%; height: 10%;"></div>
+
+    <!-- Tooltip shown when the back hotspot is clicked -->
+    <div class="tooltip" id="back-description" style="top: 10%; left: 10%;">
+      <h2>Back of the Airship</h2>
+      <p>This area highlights the engine and control room of the airship. Click again to return to the front view.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript to handle interactivity -->
+  <script src="js/app.js"></script>
+</body>
+</html>
