@@ -8,31 +8,165 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Container for our looping videos and interactive elements -->
+  <!-- Container for our looping videos, transition clips, and interactive elements -->
   <div id="video-container">
-    <!-- Main video: replace assets/main.mp4 with your 120‑second front‑view clip -->
-    <video id="mainVideo" class="video active" autoplay muted loop playsinline
+    <!-- Front loop: 120-second front-view clip -->
+    <video id="frontVideo" class="video active" muted playsinline preload="auto"
            poster="assets/airship-placeholder.png">
-      <source src="assets/main.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <!-- Back video: replace assets/back.mp4 with your 120‑second rear‑view clip -->
-    <video id="backVideo" class="video" autoplay muted loop playsinline
-           poster="assets/airship-placeholder.png">
-      <source src="assets/back.mp4" type="video/mp4">
+      <source src="assets/front-loop-01.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
 
-    <!-- Hotspot that will trigger a transition to the back video -->
-    <!-- Adjust the positioning and size (top, left, width, height) to align over the back of your airship -->
-    <div class="hotspot backHotspot" title="View the back of the ship"
-         style="top: 55%; left: 65%; width: 10%; height: 10%;"></div>
+    <!-- Back loop: 120-second rear-view clip -->
+    <video id="backVideo" class="video" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/back-loop-01.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
 
-    <!-- Tooltip shown when the back hotspot is clicked -->
-    <div class="tooltip" id="back-description" style="top: 10%; left: 10%;">
-      <h2>Back of the Airship</h2>
-      <p>This area highlights the engine and control room of the airship. Click again to return to the front view.</p>
+    <!-- Side loop: 120-second side-view clip -->
+    <video id="sideVideo" class="video" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/side-loop.webm" type="video/webm">
+      <source src="assets/side-loop.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Top loop: 120-second top-view clip -->
+    <video id="topVideo" class="video" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/top-loop.webm" type="video/webm">
+      <source src="assets/top-loop.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Dedicated transition videos (non-looping) -->
+    <video id="frontToBackTransition" class="video transition" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/front-to-back-transition.webm" type="video/webm">
+      <source src="assets/front-to-back-transition.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <video id="backToFrontTransition" class="video transition" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/back-to-front-transition.webm" type="video/webm">
+      <source src="assets/back-to-front-transition.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <video id="frontToSideTransition" class="video transition" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/front-to-side-transition.webm" type="video/webm">
+      <source src="assets/front-to-side-transition.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <video id="sideToFrontTransition" class="video transition" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/side-to-front-transition.webm" type="video/webm">
+      <source src="assets/side-to-front-transition.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <video id="frontToTopTransition" class="video transition" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/front-to-top-transition.webm" type="video/webm">
+      <source src="assets/front-to-top-transition.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <video id="topToFrontTransition" class="video transition" muted playsinline preload="auto"
+           poster="assets/airship-placeholder.png">
+      <source src="assets/top-to-front-transition.webm" type="video/webm">
+      <source src="assets/top-to-front-transition.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <button id="returnButton" class="back-control" type="button" aria-label="Return to previous scene">
+      Back
+    </button>
+
+    <!-- Hotspots and tooltips -->
+    <div id="backHotspot" class="hotspot" data-scene="frontVideo" data-target="backVideo" data-transition="frontToBackTransition"
+         style="top: 40%; right: 90%; width: 10vmin;"></div>
+    <div class="tooltip" id="backTooltip" style="top: 12%; left: 60%;">
+      <h2>Engine Gallery</h2>
+      <p>Drift toward the stern to explore the engines, control room, and crew quarters.</p>
     </div>
+
+    <div id="sideHotspot" class="hotspot" data-scene="frontVideo" data-target="sideVideo" data-transition="frontToSideTransition"
+         style="top: 45%; left: 35%; width: 10vmin;"></div>
+    <div class="tooltip" id="sideTooltip" style="top: 20%; left: 25%;">
+      <h2>Observation Deck</h2>
+      <p>Step onto the viewing platform to take in the sweeping vista across the hull.</p>
+    </div>
+
+    <div id="topHotspot" class="hotspot" data-scene="frontVideo" data-target="topVideo" data-transition="frontToTopTransition"
+         style="top: 20%; left: 50%; width: 10vmin;"></div>
+    <div class="tooltip" id="topTooltip" style="top: 5%; left: 50%;">
+      <h2>Captain's Horizon</h2>
+      <p>Ascend to the top deck for a panoramic look at the airship and the skies beyond.</p>
+    </div>
+
+    <div class="scrim" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand" aria-label="ALT">ALT</div>
+        <div class="header-actions">
+          <button class="btn-pill btn-secondary" type="button">Start your project</button>
+          <a class="btn-pill btn-secondary" href="tel:01216630202">0121 663 0202</a>
+          <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <p class="kicker">An</p>
+          <p class="alt-italic">Alternative</p>
+          <p class="display">Type Of Agency</p>
+        </div>
+        <div class="hero-right">
+          <h2 id="hero-heading">A web design agency from Birmingham</h2>
+          <p>
+            We design immersive digital experiences rooted in craft, strategy, and fearless experimentation.
+            Our team thrives on collaboration, championing bold ideas that help ambitious brands soar.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-pill btn-primary" href="#">View Our Portfolio</a>
+            <a class="btn-pill btn-secondary" href="#">Why Choose ALT?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <button class="scroll-cue" type="button" aria-label="Scroll to content">
+      <span class="chevron" aria-hidden="true"></span>
+    </button>
   </div>
+
+  <section id="content" class="below-fold">
+    <div class="below-fold-inner">
+      <h2>Placeholder content</h2>
+      <p>
+        This section is a placeholder for future modules. Scroll interactions continue below the hero
+        to reveal more stories about the ALT team, our services, and recent projects.
+      </p>
+    </div>
+  </section>
+
+  <div id="loadingOverlay" class="loading-overlay" aria-live="polite" aria-hidden="true">
+    <span class="loading-text">Loading...</span>
+  </div>
+
+  <audio id="backgroundAudio" src="assets/bg-sound.mp3" preload="auto" loop aria-hidden="true"></audio>
 
   <!-- JavaScript to handle interactivity -->
   <script src="js/app.js"></script>
