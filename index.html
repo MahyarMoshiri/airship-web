@@ -88,8 +88,7 @@
     </button>
 
     <!-- Hotspots and tooltips -->
-    <div id="backHotspot" class="hotspot" data-scene="frontVideo" data-target="backVideo" data-transition="frontToBackTransition"
-         style="top: 40%; right: 90%; width: 10vmin;"></div>
+    <div id="backHotspot" class="hotspot" data-scene="frontVideo" data-target="backVideo" data-transition="frontToBackTransition"></div>
     <div class="tooltip" id="backTooltip" style="top: 12%; left: 60%;">
       <h2>Engine Gallery</h2>
       <p>Drift toward the stern to explore the engines, control room, and crew quarters.</p>
@@ -113,16 +112,17 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <div class="brand" aria-label="ALT">ALT</div>
+        <div class="brand" aria-label="MAX CREATIVE">MAX CREATIVE</div>
         <div class="header-actions">
-          <button class="btn-pill btn-secondary" type="button">Start your project</button>
-          <a class="btn-pill btn-secondary" href="tel:01216630202">0121 663 0202</a>
+          <a class="btn-pill btn-primary" href="#">Start your voyage</a>
+          <a class="btn-pill btn-secondary" href="#">Get in touch</a>
           <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
+            <img src="assets/max-logo-only.png" alt="" loading="lazy">
           </button>
         </div>
+      </div>
+      <div class="nav-placeholder" id="navPlaceholder" hidden>
+        <p>Navigation coming soon.</p>
       </div>
     </header>
 
@@ -130,26 +130,30 @@
       <div class="hero-inner">
         <div class="hero-left">
           <p class="kicker">An</p>
-          <p class="alt-italic">Alternative</p>
-          <p class="display">Type Of Agency</p>
+          <p class="alt-italic">Airship-Borne</p>
+          <p class="display">Creative Agency</p>
         </div>
         <div class="hero-right">
-          <h2 id="hero-heading">A web design agency from Birmingham</h2>
+          <h2 id="hero-heading">Web &amp; brand craft from the clouds</h2>
           <p>
-            We design immersive digital experiences rooted in craft, strategy, and fearless experimentation.
-            Our team thrives on collaboration, championing bold ideas that help ambitious brands soar.
+            Aboard a cruising airship, our studio designs and builds quietly fearless websites, brands, and product
+            interfaces. Rumor says Maximillian—the Duke of Ravens—ferries rare art through the night. We won’t confirm
+            it. We will promise clear scope, firm timelines, steady budgets, and work that actually moves the needle.
           </p>
           <div class="hero-actions">
-            <a class="btn-pill btn-primary" href="#">View Our Portfolio</a>
-            <a class="btn-pill btn-secondary" href="#">Why Choose ALT?</a>
+            <a class="btn-pill btn-primary" href="#">See our work</a>
+            <a class="btn-pill btn-secondary" href="#">Why fly with Max?</a>
           </div>
         </div>
       </div>
     </section>
 
-    <button class="scroll-cue" type="button" aria-label="Scroll to content">
-      <span class="chevron" aria-hidden="true"></span>
-    </button>
+    <a class="scroll-cue" href="#content" aria-label="Scroll to content">
+      <span class="sr-only">Scroll to content</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path d="M3.707 5.293a1 1 0 0 0-1.414 1.414l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414L8 9.586 3.707 5.293Z" fill="currentColor"/>
+      </svg>
+    </a>
   </div>
 
   <section id="content" class="below-fold">
